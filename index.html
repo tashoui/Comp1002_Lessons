@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Data-->
+  <meta chartset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pizza form">
+  <title>The HTML Pizza Company - Order Your Perfect Pizza</title>
+  <!--Styling the page-->
+  <style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    header{
+            background-color: #046d35;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+    }
+    main{
+            background-color: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer{
+            text-align: center;
+            padding: 20px;
+            color: #666;
+    }
+    fieldset{
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+    }
+    legend{
+            font-weight: bold;
+            color: #d32f2f;
+            padding: 0 10px;
+    }
+    label{
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: 500;
+    }
+    input[type="text"], input[type="tel"], input[type="email"], input[type="number"], input[type="date"], input[type="time"],
+    select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+    }
+    input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+    }
+    .inline-options label {
+            display: inline-block;
+            margin-right: 20px;
+    }
+    .checkbox-group label {
+            display: block;
+            margin: 5px 0;
+    }
+    .button-group {
+            margin-top: 30px;
+            text-align: center;
+    }
+    button {
+            padding: 12px 30px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+    }
+    button[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+    }
+    button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+    }
+    button:hover {
+            opacity: 0.9;
+    }
+    .pizza-image {
+            text-align: center;
+            margin: 20px 0;
+    }
+    .pizza-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+    }
+    .required {
+            color: red;
+    }
+    .range-display {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #d32f2f;
+    }
+  </style>
+</head>
+
+<body>
+<!--Main header section-->
+  <header>
+    <h1>The HTML Pizza Company</h1>
+    <p>Crafting perfect pizzas since 2025</p>
+  </header>
+
+  <!--Main content-->
+  <main>
+    <!--Welcome paragraph-->
+    <div class="pizza-image">
+        <img src="pizza.jpg" alt="delicious pepperoni pizza" width="600" height="400"/>
+
+        <p>Welcome to the HTML pizza company. We are passionate about giving you the best pizza ordering experience. We ensure that with our fresh ingrediant options, every bite you take will be perfect.</p>
+    </div>
+
+    <!--Pizza order form-->
+    <form>
+
+        <!--Customer information section-->
+        <fieldset>
+           <legend>Customer Information <span class="required">*</span></legend>
+           
+           <label for="customer-name">Full Name <span class="required">*</span></label>
+           <input type="text" id="customer-name" name="customer-name" required>
+
+           <label for="phone">Phone Number
+            <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email Address<span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+        </fieldset>
+        <!--Order type section-->
+        <fieldset>
+            <legend>Order Type<span class="required">*</span></legend>
+            
+            <div class="inline-options">  
+                <label><input type="radio" name="order-type" value="delivery" checked>Delivery</label>
+                <label><input type="radio" name="order-type" value="pickup">Pick-up</label>
+                <label><input type="radio" name="order-type" value="dine-in">Dine-in</label>
+            </div>
+
+            <label for="delivery-address">Delivery Address(if applicable)</label>
+            <textarea id="delivery-address" name="delivery-address" rows="3" placeholder="Street address, apartment, city, postal code"></textarea>
+
+            <label for="delivery-date">Preferred Date</label>
+            <input type="date" id="delivery-date" name="delivery-date">
+                
+            <label for="delivery-time">Preferred Time</label>
+            <input type="time" id="delivery-time" name="delivery-time">
+        </fieldset>
+
+        <!--Pizza selction section-->
+        <fieldset>
+            <legend>Pizza Selction<span class="required">*</span></legend>
+
+            <label for="num-pizzas">Number of Pizzas <span class="required">*</span></label>
+            <input type="number" id="num-pizzas" name="num-pizzas" min="1" max="20" value="1" required>
+
+            <label for="pizza-size">Size <span class="require">*</span></label>
+            <select id="pizza-size" name="pizza-size" required>
+               <option value="">-- Select a Size --</option>
+               <option value="small">Small (6 slices - 10") </option>
+               <option value="medium">Medium (8 slices - 12") </option>
+               <option value="large">Large (10 slices - 14") </option>
+               <option value="x-large">X-Large (16 slices - 18") </option>
+            </select>
+
+            <label for="pizza-shape">Shape <span class="required">*</span></label>
+            <div class="inline-options">
+                <label><input type="radio" name="pizza-shape" value="round" checked>Round</label>
+                <label><input type="radio" name="pizza-shape" value="square">Square (Sicilian Style)</label>
+            </div>
+
+            <label for="crust-type">Crust Type<span class="required">*</span></label>
+            <select id="crust-type" name="crust-type" required>
+                <option value="">-- Select Crust --</option>
+                <option value="thin">Thin</option>
+                <option value="regular">Regular </option>
+                <option value="thick">Thick </option>
+                <option value="deep-dish">Deep Dish </option>
+                <option value="stuffed-crust">Stuffed Crust </option>
+                <option value="gluten-free">Gluten Free (+3$) </option>
+            </select>
+        </fieldset>
+
+        <!--Toppings selection section-->
+        <fieldset>
+            
+            <legend>Toppings</legend>
+            <p><strong>Select Your Toppings:</strong> (First 3 included, $1.50 each additional)</p>
+            
+            <div class="checkbox-group">
+                <p><em>Meats:</em></p>
+                <label><input type="checkbox" name="toppings" value="pepperoni"> Pepperoni</label>
+                <label><input type="checkbox" name="toppings" value="sausage"> Italian Sausage</label>
+                <label><input type="checkbox" name="toppings" value="ham"> Ham</label>
+                <label><input type="checkbox" name="toppings" value="bacon-crumble"> Bacon Crumble</label>
+                <label><input type="checkbox" name="toppings" value="bacon-strips"> Bacon Strips</label>
+
+                <p><em>Vegetables:</em></p>
+                <label><input type="checkbox" name="toppings" value="mushrooms"> Mushrooms</label>
+                <label><input type="checkbox" name="toppings" value="olives"> Olives</label>
+                <label><input type="checkbox" name="toppings" value="pineapple"> Pineapple</label>
+                <label><input type="checkbox" name="toppings" value="peppers"> Peppers</label>
+                <label><input type="checkbox" name="toppings" value="onions"> Onions</label>
+            </div>
+        </fieldset>
+
+        <!--Cheese and Sauce Section-->
+        <fieldset>
+            <legend>Cheese and Sauce</legend>
+
+            <input type="range" id="cheese-amount" name="cheese-amount" min="0" max="3" value="2" step="1" oninput="document.getElementById('cheese-value').textContent = ['None', 'Light', 'Regular', 'Extra'][this.value]">
+            <span class="range-display" id="cheese-value">Regular</span>
+
+            <label for="sauce-type">Sauce Type</label>
+            <input type="range" id="sauce-amount" name="sauce-amount" min="0" max="3" value="2" step="1" oninput="document.
+            getElementById('sauce-value').textContent = ['None','Light', 'Regular', 'Extra'][this.value]"><span class="range-display" id="sauce-value">Regular</span>
+            <select id="sauce-type" name="sauce-type">
+                <option value="marinara">Classic Marinara</option>
+                <option value="white">White Sauce</option>
+                <option value="bbq">BBQ Sauce</option>
+                <option value="buffalo">Buffalo Sauce</option>
+            </select>
+        </fieldset>
+
+        <!--Special Instructions-->
+        <fieldset>
+            <legend>Special Instructions</legend>
+        
+            <label for="special-instructions">Any special requests or dietary restrictions?</label>
+            <textarea id="special-instructions" name="special-instructions" rows="4" placeholder="Example: Extra napkins, no garlic, well-done, etc."></textarea>
+        </fieldset>
+
+        <!--Submit and Reset buttons-->
+         <div class="button-group">
+            <button type="submit">🍕 Place Order</button>
+            <button type="reset">🔄 Clear Form</button>
+         </div>
+    </form>
+  </main>
+
+  <!--Footer Section-->
+  <footer>
+        <p>&copy; 2025 The HTML Pizza Company. All rights reserved.</p>
+        <p>📞 Call us: (705) 123-PIZZA | 📧 Email: orders@htmlpizza.com</p>
+        <p>Open Daily: 9:00 AM - 11:00 PM</p>
+  </footer>
+</body>
+</html>
